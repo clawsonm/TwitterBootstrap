@@ -154,7 +154,7 @@ class BootstrapFormHelper extends FormHelper {
 		if (in_array(self::FORM_SEARCH, $class) || in_array(self::FORM_INLINE, $class)) {
 			$options['inputDefaults'] = Set::merge($inputDefaults, array('div' => false, 'label' => false));
 		} else {
-			$options['inputDefaults'] = Set::merge($inputDefaults, array('div' => self::CLASS_GROUP));
+			$options['inputDefaults'] = Set::merge($inputDefaults, array('div' => array ('class' => self::CLASS_GROUP)));
 		}
 
 		return parent::create($model, $options);
@@ -164,12 +164,12 @@ class BootstrapFormHelper extends FormHelper {
 		$default = array(
 			'type' => 'submit',
 			'class' => self::CLASS_BUTTON,
-			'div' => self::CLASS_ACTION,
+			'div' => array('class' => self::CLASS_ACTION),
 			'icon' => null,
 		);
 		$options = array_merge($default, $this->_inputDefaults, $options);
 		if ($options['div'] !== false && $this->_isHorizontal) {
-			$options['div'] = self::CLASS_ACTION;
+			$options['div'] = array('class' => self::CLASS_ACTION);
 		}
 		if ($options['icon']) {
 			$caption = $this->Html->icon($options['icon']) . ' ' . $caption;
@@ -323,7 +323,7 @@ class BootstrapFormHelper extends FormHelper {
 	}
 
 	protected function _controlGroupStates($fieldName, $options) {
-		$div = $this->_extractOption('div', $options);
+		$div = $this->_extractOption('div', $options, array());
 		if (false !== $div) {
 			$inlines = (array)$this->_extractOption('helpInline', $options, array());
 			foreach ($options as $key => $value) {
@@ -348,7 +348,7 @@ class BootstrapFormHelper extends FormHelper {
 				));
 			}
 			if (false !== $div) {
-				$options = $this->addClass($options, self::CLASS_ERROR, 'div');
+				$options['div'] = $this->addClass($div, self::CLASS_ERROR, 'class');
 			}
 		}
 		return $options;
