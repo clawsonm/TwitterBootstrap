@@ -1,4 +1,6 @@
-#Development of this plugin has moved [BoostCake](https://github.com/slywalker/cakephp-plugin-boost_cake).
+#Note about BoostCake
+
+Development of this plugin has moved to [BoostCake](https://github.com/slywalker/cakephp-plugin-boost_cake). However this fork [clawsonm/TwitterBootstrap](https://github.com/clawsonm/TwitterBootstrap) will be maintained for those who cannot switch to BoostCake immediately.
 
 #TwitterBootstrap Plugin for CakePHP2.x
 The TwitterBootstrap Plugin provides an easy-to-use feature Bootstrap in CakePHP2.x
